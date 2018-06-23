@@ -1,0 +1,25 @@
+import (TicketRecord) read_ticketing
+
+define goto {}
+
+
+define write_tickets(t: List[TicketRecord]) {
+	var l: List[String] = []
+
+	goto()
+
+	for i in 0...t.size() - 1: {
+		var z = t[i]
+		# zzz sleep
+		var out = [z.desc, z.price, z.desc]
+		var ready_out = out.join("|")
+		l.push(ready_out)
+	}
+
+	var f = File.open("ticketing.txt", "w")
+
+	l.each(|e|
+		f.write(e ++ "\n") )
+
+	f.close()
+}

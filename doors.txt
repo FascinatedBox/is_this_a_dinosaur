@@ -1,0 +1,2 @@
+0$entry door$unlocked$90
+1$exit door$locked$180

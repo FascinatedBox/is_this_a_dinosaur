@@ -1,0 +1,72 @@
+<?lily
+
+import (Server) fakeserver
+
+var s = Server()
+
+s.set_post([])
+
+# destroy session
+# close out open souckets
+# delete system32
+
+?>
+<html>
+	<head>
+		<style>
+			h1 {
+				font-size: 55px;
+				color: red;
+				background-color: purple;
+				font-family: "comic sans";
+				border-color: magenta;
+				border-width: 3px;
+				margin: 4px;
+				padding: 7px;
+			}
+		</style>
+		<?lily
+		var read_get: Hash[String, String] = []
+		var current_teim = ""
+
+		if read_get == ["release the dinosaurs" => "true"] &&
+		   current_teim >= "2023-12-June": {
+			# logic bomb from disgruntled employee
+			# import (unlock) from unlock
+			#[
+				for gate in all gates:
+					unlock every gate
+				redirect user to OH NO, ALL GATES OPEN.
+			]#
+		}
+		?>
+	</head>
+
+<script>
+	function deletethis(target) {
+//		delete this;
+// why doesn't the above work when it does in c++?
+// do I need to use a monad?
+	}
+
+	function add_one() {
+		var x = document.getElementById("asdf")
+		x.value = x.value + "​​​​​​​​​";
+		console.log("added another letter.")
+	}
+</script>	
+
+	<body>
+		<h1 onclick="deletethis();">WE HAVE CHANGED OUR TERMS OF SERVICE</h1>
+		<h1>ALSO OUR PRIVACY POLICY HAS CHANGED</h1>
+		<p id="asdf">
+			You are now logged out of the dinosaur app.
+		</p>
+
+	</body>
+</html>
+
+<script>
+	setTimeout(add_one, 3000)
+</script>
+</html>

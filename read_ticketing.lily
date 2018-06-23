@@ -1,0 +1,32 @@
+class TicketRecord(var @desc: String,
+				   var @price: String,
+				   var @time: String # lol
+				   ) {}
+
+
+define new_ticket(:desc desc: String,
+				  :price price: String,
+				  :time time: String): TicketRecord
+{
+	return TicketRecord(desc, time, price)
+}
+
+define read_tickets: List[TicketRecord] {
+	var f = File.open("ticketing.txt", "r")
+	var lines: List[String] = []
+
+	f.each_line(|l| l.encode().unwrap() |> lines.push )
+
+	f.close()
+
+	var split_lines = lines.map(|l| l.split("|") )
+	var record_list: List[TicketRecord] = []
+
+	for i in 0...split_lines.size() - 1: {
+		var r = split_lines[i]
+		TicketRecord(r[0], r[1], r[2])
+			|> record_list.push
+	}
+
+	return record_list
+}

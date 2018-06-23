@@ -1,0 +1,6 @@
+loch ness|$3.50|loch ness
+triceratops|$5.00|triceratops
+ninja|$10.00|ninja
+new description|333am-632pm|new description
+333am-632pm|new description|333am-632pm
+whoops|i broke it|oh well

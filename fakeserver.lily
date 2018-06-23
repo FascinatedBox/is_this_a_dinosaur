@@ -1,0 +1,14 @@
+
+class Server {
+	private var @post_data: Hash[String, String] = []
+	public define set_post(p: Hash[String, String]) {
+		@post_data = p
+	}
+	public define post: Hash[String, String] {
+		return @post_data
+	}
+	public define redirect(:to location: String) {
+		# Pretend this redirects to a different url
+		print("Redirecting to " ++ location)
+	}
+}

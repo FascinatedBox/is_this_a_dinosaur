@@ -1,0 +1,46 @@
+<?lily
+
+import read_ticketing
+import (Server) fakeserver
+
+var ticket_db = read_ticketing.read_tickets()
+var s = Server()
+#[
+s.set_post(["desc0" => "desc for first ticket",
+			"desc1" => "desc for second ticket",
+			"price0" => "first price"])
+]#
+
+
+
+var post = s.post()
+
+
+
+?>
+<html>
+	<head>
+		<title>editing tickets (they have to exist though)</title>
+	</head>
+	<body>
+		<?lily
+
+		print("<h1>Edit existing tickets (no support for adding/removing)</h1>")
+		
+		for i in 0...ticket_db.size() - 1: {
+			var t = ticket_db[i]
+
+
+			print("<label>Description:</label></br>")
+			print("Edit Desc: <input id='desc{0}' type='text' value='{1}'></input></br></br>"
+				.format(i, t.desc))
+			print("Edit Price: <input id='price{0}' type='text' value='{1}'></input></br></br>"
+				.format(i, t.price))
+			print("Edit Time: <input id='time{0}' type='text' value='{1}'></input></br></br>"
+				.format(i, t.time))
+		}
+		
+		?>
+		<input type="submit" value="submit ticket changes (NOTE: CANNOT UNDO, BE CAREFUL!!!)"></input>
+	</body>
+</html>

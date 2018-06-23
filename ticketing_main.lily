@@ -1,0 +1,25 @@
+<?lily
+
+import read_ticketing
+
+?>
+<html>
+	<head>
+		<title>ticketing display</title>
+	</head>
+	<body>
+		<?lily
+		
+		var tickets = read_ticketing.read_tickets()
+		
+		
+		for i in 0...tickets.size() - 1: {
+			var t = tickets[i]
+			print("<p>Description: " ++ t.desc ++ "</p>")
+			print("<p>Price: " ++ t.price ++ "</p>")
+			print("<p>Time Range: " ++ t.time ++ "</p>")
+			print("</br>")
+		}
+		?>
+	</body>
+</html>

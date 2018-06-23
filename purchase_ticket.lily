@@ -1,0 +1,36 @@
+<?lily
+
+import read_ticketing
+
+var ticket_db = read_ticketing.read_tickets()
+
+
+?>
+<html>
+	<head>
+		<title>ticketing display</title>
+	</head>
+	<body>
+		<?lily
+		
+		for i in 0...ticket_db.size() - 1: {
+			var t = ticket_db[i]
+			print("<h1>Purchase tickets for: " ++ t.desc ++ "</h1>")
+
+# what is a comment?
+
+			var price_str = t.price.split(".")
+			var money_left = price_str[0].slice(1).parse_i().unwrap().to_d()
+			var money_right = price_str[1].parse_i().unwrap().to_d() / 100.0
+			var money_total = money_left + money_right
+
+# I know this, it's a unix system
+
+			for j in 1...30: {
+				var real_total = money_total * j.to_d()
+				print("<input type='button'>" ++ j ++ " Tickets ($" ++ real_total ++ ")</input></br>")
+			}
+		}
+		?>
+	</body>
+</html>

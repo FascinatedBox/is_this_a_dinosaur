@@ -1,0 +1,24 @@
+### Given a name and password, check if the person is in the """database"""
+### Returns true if found, false otherwise.
+define is_employee(:name name: String, :pass password: String): Boolean {
+	var f = File.open("employees.txt", "r")
+	var lines: List[String] = []
+
+	f.each_line(|l| l.encode().unwrap() |> lines.push )
+
+	f.close()
+
+	var name_pass_lines = lines.map(|l| l.split("|") )
+	var found = false
+
+	for i in 0...name_pass_lines.size() - 1: {
+		var record = name_pass_lines[i]
+		
+		if record[0] == name &&
+		   record[1] == password: {
+		   found = true
+		}
+	}
+
+	return found
+}

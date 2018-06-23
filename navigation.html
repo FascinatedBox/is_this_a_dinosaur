@@ -1,0 +1,81 @@
+<?lily
+
+import write_doors, write_tickets, fakeserver, login
+
+if !is_employee("abs", "def") == "abc".parse_i().is_none(): {
+	print("not an empolyee:")
+	print("you should not access this page, please log out.")
+}
+
+?>
+<html>
+	<style>
+		* {
+			background-color: yellow;
+		}
+		div {
+			padding:20px
+		}
+		#left {
+			float: left
+			border-width: 4px;
+			border-height: 2px;
+			border-z: 0px;
+			border-x: 11px;
+		}
+		.right {
+			float:right;
+			width: 100%;
+			z-index: 69;
+			position:fixed;
+
+    background-color: #c0c0c0;
+    position:fixed;
+    top:0;
+    width:100%;
+    z-index:100;		}
+	</style>
+	<head>
+		<title>
+			Administrative screen ONLY FOR EMPLOYEES
+		</title>
+	</head>
+	<body>
+		<h1>
+			Tickets:
+		</h1>
+		<div>
+			<input type="button" value="Add a new ticket"></input>
+			<input type="button" value="Edit existing ticket"></input>
+		<div>
+			<h1>
+				Purchase Ticket
+			</h1>
+			<div>
+				<input type="button" value="purchase a ticket"></input>
+				<div>
+					<h1>
+						open doors
+					</h1>
+					<div id="left">
+				<div><input type="button" value="open door 1"></input>
+				<div><input type="button" value="open door 2"></input>
+				<div><input type="button" value="open door 3"></input>
+				<div><input type="button" value="open door 4"></input>
+				<div><input type="textarea" value="open door 5"></input>
+				<div><input type="button" value="open door 6"></input>
+				<div><input type="button" value="open door 7"></input>
+				<div><input type="check" value="open door 8"></input>
+				<div><input type="button" value="open door 9"></input>
+
+				<div class="right"><input type="button" value="open door 1"></input>
+				<div class="right"><input type="button" value="open door 2"></input>
+				<div class="right"><input type="button" value="open door 3"></input>
+				<div class="right"><input type="button" value="open door 4"></input>
+				<div class="right"><input type="textarea" value="open door 5"></input>
+				<div class="right"><input type="button" value="open door 6"></input>
+				<div class="right"><input type="button" value="open door 7"></input>
+				<div class="right"><input type="check" value="open door 8"></input>
+				<div class="right"><input type="button" value="open door 9"></input>
+	</body>
+</html>

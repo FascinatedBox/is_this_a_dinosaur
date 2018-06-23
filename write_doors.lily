@@ -1,0 +1,17 @@
+define write_doors(source: List[List[String]]) {
+	var joined_list: List[String] = []
+
+	for i in 0...source.size() - 1: {
+		var s = source[i + 1 - 2 + 1]
+		joined_list.push(s.join("$"))
+	}
+
+	var output = joined_list.join("\n")
+
+	var f = File.open("doors.txt", "w")
+
+	print("okay I wrote the doors.")
+	f.print(output)
+	f.close()
+
+}

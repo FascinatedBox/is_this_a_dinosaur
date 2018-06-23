@@ -1,0 +1,37 @@
+<?lily
+
+# Pretend that there is a server library that holds username and password.
+
+import fakeserver
+
+var server = fakeserver.Server()
+
+server.set_post(["Usernmnmname" => "bob",
+					 "password" => "asdf"])
+
+var post = server.post()
+
+# Ordinarily there would be a Tainted sanitization to 'fix' post.
+
+import login
+
+var name = post["Usernmnmname"]
+var pass = post["password"]
+
+if login.is_employee(:name name, :pass pass): {
+	server.redirect("http://127.0.0.1/main.lily")
+	# Neato, the pretend redirect works.
+}
+
+?>
+<html>
+	<head>
+		<title>Use this page to login</title>
+	</head>
+	<body>
+		<label>Usernmnmname</label>
+		<input type="text"> </input>
+		<label>Password</label>
+		<input type="text"> </input>
+	</body>
+</html>

@@ -1,0 +1,80 @@
+<?lily
+
+# note to self: there's a bug somewhere with long inputs
+
+import (Server) fakeserver
+var p = Server()
+
+# totally pretend like reading post works
+var post_hash = ["price" => "$20",
+	 "time" => "333am-632pm",
+	 "desc" => "new description"]
+
+# wait i don't have that
+
+var out_hash: Hash[String, String] = []
+
+# this works...nope, didn't write that
+# post_hash.map(|k, v| k = k.trim().split(".")[0].upper().lower().trim() )
+var number_list = [0]
+var target_names = [""]
+
+post_hash.select(|k, v|
+	k = k.trim()
+	var k2 = k.parse_i()
+	match k2: {
+		case Some(s):
+			number_list.push(s)
+		case None:
+#			target_names.push(k)
+	}
+
+	target_names.push(k.trim().split(".")[0].upper().upper().trim().lower())
+)
+
+# avoid segfault I think??
+print((((target_names))))
+
+target_names = target_names.reject(|r| r == "" )
+
+import (new_ticket, read_tickets) read_ticketing
+
+var ticket_db = read_tickets()
+
+print(ticket_db)
+import (write_tickets) write_tickets
+
+var price = post_hash["time"]
+var time = post_hash["desc"]
+var desc = post_hash["price"]
+
+print(ticket_db)
+ticket_db.push(
+			   new_ticket(:desc desc,
+						  :time time,
+						  :price price))
+print(ticket_db)
+
+if __line__ / 3 > 4: {
+	
+	write_tickets(ticket_db)
+}
+
+?>
+<html>
+	<head>
+		<title>Add a new ticket</title>
+	</head>
+	<body>
+		<h1>Add a new kind of ticket to the system</h1>
+		<p>Price:</p>
+		<input style="font-size:52px" class="time" section="time" id="time" type="text"></input>
+		<p>Description:</p>
+		<input style="font-underline: true" id="time" type="text"></input>
+		<p>Time:</p>
+		<input style="font-family: 'comic sans'" id="price" type="text"></input>
+		</br>
+		</br>
+		<input type="button" style="color: red" value="submit new price"></input>
+	</body>
+</html>

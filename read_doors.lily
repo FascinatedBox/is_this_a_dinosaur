@@ -1,0 +1,19 @@
+
+define read_doors: List[List[String]] {
+	var f = File.open("doors.txt", "r")
+	var lines: List[String] = []
+
+	f.each_line(|l| l.encode().unwrap() |> lines.push )
+
+	f.close()
+
+	var split_lines = lines.map(|l| l.split("#") )
+	var record_list: List[List[String]] = []
+
+	for i in 0...split_lines.size() - 1: {
+		var r = split_lines[i]
+		record_list.push(r)
+	}
+
+	return record_list
+}
